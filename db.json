@@ -1,5 +1,133 @@
 {
-  "budgets": [],
+  "budgets": [
+    {
+      "id": "",
+      "client": "jaijjuh",
+      "date": "2024-10-06T00:00:00.000Z",
+      "modules": [
+        {
+          "zone": "Comedor"
+        }
+      ]
+    },
+    {
+      "id": "bbff",
+      "client": "aaa",
+      "date": "2024-10-09",
+      "modules": [
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Cocina"
+        },
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Comedor"
+        },
+        {
+          "id": "3",
+          "price": 1500,
+          "slots": 1,
+          "zone": "Cocina"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Dormitorio"
+        },
+        {
+          "id": "6",
+          "price": 5000,
+          "slots": 1,
+          "zone": "Living"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "client": "joaquininh",
+      "date": "2024-10-03T00:00:00.000Z",
+      "modules": [
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Living"
+        },
+        {
+          "id": "3",
+          "price": 1500,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Comedor"
+        },
+        {
+          "id": "4",
+          "price": 3000,
+          "slots": 2,
+          "zone": "Dormitorio"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Cocina"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "client": "Laura",
+      "date": "2024-10-03T00:00:00.000Z",
+      "modules": [
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Living"
+        },
+        {
+          "id": "3",
+          "price": 1500,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Comedor"
+        },
+        {
+          "id": "4",
+          "price": 3000,
+          "slots": 2,
+          "zone": "Dormitorio"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Cocina"
+        },
+        {
+          "id": "3",
+          "price": 1500,
+          "slots": 1,
+          "zone": "Cocina"
+        }
+      ]
+    }
+  ],
   "module-types": [
     {
       "id": "1",
