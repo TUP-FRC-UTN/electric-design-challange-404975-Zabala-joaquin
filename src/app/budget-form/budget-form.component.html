@@ -1,4 +1,103 @@
-<!-- BUILT IT FROM:
-https://getbootstrap.com/docs/5.3/forms/form-control/#example
-https://getbootstrap.com/docs/5.3/forms/select/#default
-https://getbootstrap.com/docs/5.3/forms/select/#default -->
+<div class="container mt-5">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
+            
+            <input type="text" class="form-control" 
+             formControlName="client"
+             [ngClass]="{'is-invalid': form.controls['client'].invalid && form.controls['client'].touched}">
+
+             @if(form.controls['client'].invalid && form.controls['client'].touched) {
+              
+                @if(form.controls['client'].errors?.['required']){
+
+                    <div>
+                        <small class="text-danger">El nombre es requerido</small>
+                    </div>
+                 }
+                
+             }
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Fecha</label>
+            <input type="date" class="form-control" formControlName="date"
+            [ngClass]="{'is-invalid': form.controls['date'].invalid && form.controls['date'].touched}">
+
+            @if(form.controls['date'].invalid && form.controls['date'].touched) {
+              
+                @if(form.controls['date'].errors?.['required']){
+
+                    <div>
+                        <small class="text-danger">La fecha es requerida</small>
+                    </div>
+                 }
+                
+             }
+
+        </div>
+        <!--formulario modulos -->
+        <div formArrayName="modules">
+            <button (click)="addModule()" class="btn btn-primary">Agregar Modulo</button>
+
+            @if (modules.controls.length < 5 && modules.touched) {
+                <div>
+                    <small class="text-danger">Debe agregar al menos 5 módulos.</small>
+                  </div>
+            }
+            
+
+            @for(module of modules.controls; track $index) {
+                <div [formGroupName]="$index">
+                    <div>
+                        <label class="form-label">Tipo Modulo</label>
+                        <select class="form-select" formControlName="id" (change)="onModuleChange($index)">
+                            <option [value]="null">Seleccione un tipo</option>
+                            @for (type of moduleTypes; track type.id) {
+                                <option [value]="type.id">{{type.name}}</option>
+                            }
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="form-label">Ambiente</label>
+                        <select class="form-select" 
+                        formControlName="zone"
+                        [ngClass]="{'is-invalid': module.get('zone')?.invalid && module.get('zone')?.touched}">
+                        
+                            <option [value]="null">Seleccione un ambiente</option>
+                            @for (zone of zones; track $index) {
+                                <option [value]="zone">{{zone}}</option>
+                            }
+            
+                        </select>
+
+                        <!--toma el module que estamos editando-->
+                        @if (module.get('zone')?.invalid && module.get('zone')?.touched) {
+                            @if (module.get('zone')?.errors?.['required']) {
+                                <div>
+                                    <small class="text-danger">Ambiente es requerido</small>
+                                </div>
+                            }
+                        }
+
+                    </div>
+
+                    <div>
+                        <label class="form-label">Precio</label>
+                        <input type="number" class="form-control" formControlName="price" readonly>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Lugares</label>
+                        <input type="number" class="form-control" formControlName="slots" readonly>
+                    </div>
+                </div>
+
+                <button class="btn btn-close" (click)="quitarModule($index)"></button>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
